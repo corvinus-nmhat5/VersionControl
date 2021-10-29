@@ -17,6 +17,7 @@ namespace Webszolgaltatas
     public partial class Form1 : Form
     {
         BindingList<RateData> Rates = new BindingList<RateData>();
+        BindingList<string> Currencies = new BindingList<string>(); 
         string exchangeRates;
 
         public Form1()
@@ -24,8 +25,10 @@ namespace Webszolgaltatas
             InitializeComponent();
 
             dataGridView2.DataSource = Rates;
+            comboBox1.DataSource = Currencies;
 
             GetExchangeRates();
+            GetCurrencies();
             XmlReader();
             Chart();
             RefreshDate();
@@ -47,6 +50,11 @@ namespace Webszolgaltatas
             exchangeRates = response.GetExchangeRatesResult;
         }
 
+        private void GetCurrencies()
+        {
+
+        }
+
         private void XmlReader()
         {
             var xml = new XmlDocument();
@@ -60,6 +68,8 @@ namespace Webszolgaltatas
                 rate.Date = DateTime.Parse(element.GetAttribute("date"));
 
                 var childElement = (XmlElement)element.ChildNodes[0];
+                if (childElement == null)
+                    continue;
                 rate.Currency = childElement.GetAttribute("curr");
 
                 var unit = decimal.Parse(childElement.GetAttribute("unit"));
