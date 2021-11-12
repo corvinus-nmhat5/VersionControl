@@ -80,5 +80,16 @@ namespace Fejlesztesi_mintak
             _nextToy.Left = label1.Left;
             Controls.Add(_nextToy);
         }
+
+        private void buttonColor_Click(object sender, EventArgs e)
+        {
+            var button = (Button)sender;
+            var colorPicker = new ColorDialog();
+
+            colorPicker.Color = button.BackColor;
+            if (colorPicker.ShowDialog() != DialogResult.OK)
+                return;
+            button.BackColor = colorPicker.Color;
+        }
     }
 }

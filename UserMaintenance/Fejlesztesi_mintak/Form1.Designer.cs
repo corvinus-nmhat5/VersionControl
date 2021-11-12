@@ -33,11 +33,13 @@ namespace Fejlesztesi_mintak
             this.carButton = new System.Windows.Forms.Button();
             this.ballButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.buttonColor = new System.Windows.Forms.Button();
             this.mainPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // mainPanel
             // 
+            this.mainPanel.Controls.Add(this.buttonColor);
             this.mainPanel.Controls.Add(this.label1);
             this.mainPanel.Controls.Add(this.ballButton);
             this.mainPanel.Controls.Add(this.carButton);
@@ -75,6 +77,15 @@ namespace Fejlesztesi_mintak
             this.label1.TabIndex = 2;
             this.label1.Text = "Coming next:";
             // 
+            // buttonColor
+            // 
+            this.buttonColor.Location = new System.Drawing.Point(119, 102);
+            this.buttonColor.Name = "buttonColor";
+            this.buttonColor.Size = new System.Drawing.Size(100, 23);
+            this.buttonColor.TabIndex = 3;
+            this.buttonColor.UseVisualStyleBackColor = true;
+            this.buttonColor.Click += new System.EventHandler(this.buttonColor_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -95,6 +106,7 @@ namespace Fejlesztesi_mintak
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button ballButton;
         private System.Windows.Forms.Button carButton;
+        private System.Windows.Forms.Button buttonColor;
     }
 }
 
