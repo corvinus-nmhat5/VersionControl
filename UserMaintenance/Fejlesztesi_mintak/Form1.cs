@@ -68,7 +68,10 @@ namespace Fejlesztesi_mintak
 
         private void ballButton_Click(object sender, EventArgs e)
         {
-            Factory = new BallFactory();
+            Factory = new BallFactory
+            {
+                BallColor = buttonColor.BackColor
+            };
         }
 
         private void DisplayNext()
@@ -90,6 +93,15 @@ namespace Fejlesztesi_mintak
             if (colorPicker.ShowDialog() != DialogResult.OK)
                 return;
             button.BackColor = colorPicker.Color;
+        }
+
+        private void presentButton_Click(object sender, EventArgs e)
+        {
+            Factory = new PresentFactory
+            {
+                RibbonColor = ribbonButton.BackColor,
+                BoxColor = boxButton.BackColor
+            };
         }
     }
 }
