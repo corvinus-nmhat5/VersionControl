@@ -21,6 +21,7 @@ namespace Fejlesztesi_mintak
             get { return _factory; }
             set { _factory = value; }
         }
+
         public Form1()
         {
             InitializeComponent();
