@@ -50,5 +50,25 @@ namespace UnitTestExample.Test
             // Assert
             Assert.AreEqual(expectedResult, actualResult);
         }
+
+        [
+            Test,
+            TestCase("irf@uni-corvinus.hu", "Abcd1234"),
+            TestCase("irf@uni-corvinus.hu", "Abcd12345678")
+        ]
+
+        public void TestRegisterHappyPath(string email, string password)
+        {
+            // Arrange
+            var accountController = new AccountController();
+
+            // Act
+            var actaulResult = accountController.Register(email, password);
+
+            // Assert
+            Assert.AreEqual(email, actaulResult.Email);
+            Assert.AreEqual(password, actaulResult.Password);
+            Assert.AreNotEqual(Guid.Empty, actaulResult.ID);
+        }
     }
 }
